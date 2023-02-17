@@ -1,0 +1,6 @@
+Actividad 4:
+    a) 1- NameServer 2- ChatServer 3- ChatClient 4- ChatClient
+    b) mediante la orden srv.connect(IChatUser)
+    c) list[i] = channels[i].getName();
+    d) en el caso de IChatUser solo se envia el mensaje a un usuario concreto, en el caso de IChatServer se envía a todos los usuarios del canal.
+    e) 
