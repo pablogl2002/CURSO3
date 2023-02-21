@@ -30,21 +30,23 @@ class Translator():
         :return: la palabra traducida
         """
 
-        vocal = "aeiouy"
-        new_word = ""
-        if word[0] in vocal:
-            new_word = word + "yay"
-        else:
-            cons = ""
-            i = 0
-            for letter in word:
-                if letter in vocal:
-                    new_word = word[i:] + cons + "ay"
-                else:
-                    cons += letter
-                i += 1
+        vocales = ['a', 'e', 'i', 'o', 'u']
 
-        # new_word = word # SUSTITUIR ESTA PARTE
+        for i in range(len(word)):
+            hasV = False
+            if word[0] in vocales:
+                new_word = word + "yay"
+                break
+            else:
+                if word[i] in vocales:
+                    new_word = word[i:] + word[:i] + "ay"
+                    hasV = True
+                    break
+
+            if hasV == False and i == len(word) - 1:
+                new_word = word + "ay"
+
+        #new_word = word # SUSTITUIR ESTA PARTE
         
         return new_word
 
@@ -58,9 +60,10 @@ class Translator():
 
         # traducir una frase #
 
+        sentenceL = sentence.split()
         t = Translator()
         new_sentence = ""
-        for word in sentence:
+        for word in sentenceL:
             # añadir palabras en un str
             #new_sentence.concat(t.translate_word(word) + " ")
             new_sentence += t.translate_word(word) + " "
@@ -98,4 +101,5 @@ if __name__ == "__main__":
         sentence = input("ENGLISH: ")
         while len(sentence) > 1:
             print("PIG LATIN:", t.translate_sentence(sentence))
+            #print("PIG LATIN:", t.translate_word(sentence))
             sentence = input("ENGLISH: ")
