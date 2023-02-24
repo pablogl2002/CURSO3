@@ -31,50 +31,69 @@ class Translator():
         :return: la palabra traducida
         """
         punt = ".,;?!"
-        vocales = 'aeiouAEIOU'
-        ay = "ay"
-        yay = "yay"
+        vocales = 'aeiou'
 
-        if word[0] not in string.ascii_letters:
-            new_word = word
-        else:
-            if word.upper() == word:
-                ay = "AY"
-                yay = "YAY"
+        if word.upper() != word and word[0] in string.ascii_letters:
             capL = False
+            if word[0] in string.ascii_uppercase and word[1:].lower() == word[1:]:
+                word = word.lower() 
+#                capL = True
+
             for i in range(len(word)):
                 hasV = False
-
-                if word[0] in string.ascii_uppercase and word[1:].lower() == word[1:]:
-                    word = word.lower()
-                    capL = True
 
                 if word[0] in vocales:
                     if word[-1] in punt:
                     #if self.re.search(word):
-                        new_word = word[:-1] + yay + word[-1]
-                    else: new_word = word + yay
+                        new_word = word[:-1] + "yay" + word[-1]
+                    else: new_word = word + "yay"
                     break
                 else:
                     if word[i] in vocales:
                         if word[-1] in punt:
     #                    if self.re.search(word):
-                            new_word = word[i:-1] + word[:i] + ay + word[-1]
+                            new_word = word[i:-1] + word[:i] + "ay" + word[-1]
                         else:
-                            new_word = word[i:] + word[:i] + ay
+                            new_word = word[i:] + word[:i] + "ay"
                         hasV = True
                         break
 
                     if hasV == False and i == len(word) - 1:
                         if word[-1] in punt:
 #                        if self.re.search(word):
-                            new_word = word[:-1] + ay + word[-1]
-                        else: new_word = word + ay
+                            new_word = word[:-1] + "ay" + word[-1]
+                        else: new_word = word + "ay"
 
-            if capL:
-                new_word = new_word[0].upper() + new_word[1:]
-            #new_word = word # SUSTITUIR ESTA PARTE
-            
+#                    if capL == True: new_word = new_word[0].upper() + new_word[1:]
+
+        elif word.upper() == word and word[0] in string.ascii_letters:
+            for i in range(len(word)):
+                hasV = False
+
+                if word[0] in vocales:
+                    if self.re.search(word):
+                        new_word = word[:-1] + "YAY" + word[-1]
+                    else: new_word = word + "YAY"
+                    break
+                else:
+                    if word[i] in vocales:
+                        if self.re.search(word):
+                            new_word = word[i:-1] + word[:i] + "AY" + word[-1]
+                        else:
+                            new_word = word[i:] + word[:i] + "AY"
+                        hasV = True
+                        break
+
+                if hasV == False and i == len(word) - 1:
+                    if self.re.search(word):
+                        new_word = word[:-1] + "AY" + word[-1]
+                    else: new_word = word + "AY"
+        #elif word[0] not in string.ascii_letters:
+        #    new_word = word
+
+
+        #new_word = word # SUSTITUIR ESTA PARTE
+        
         return new_word
 
     def translate_sentence(self, sentence:Text):
