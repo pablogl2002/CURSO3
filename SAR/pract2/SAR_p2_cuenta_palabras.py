@@ -37,33 +37,52 @@ class WordCounter:
             full: boolean, si se deben mostrar las stats completas
         """
         with open(filename, 'w', encoding='utf-8', newline='\n') as fh:
-
-            #print(stats)
-
-            print(f"Lines: {stats['nlines']}", file=fh)
-            print(f"Number words (including stopwords) : {stats['nwords']}", file=fh)
-            print(f"Vocabulary size: {len(stats['word'])}", file=fh)
-            print(f"Number of symbols: {self.sum_freq(stats['symbol']) }", file=fh)
-            print(f"Number of different symbols: {len(stats['symbol'])}", file=fh)
-            print(f"Words (alphabetical order): {self.mostrar_dict(stats['word'], fh)}" , file=fh)
-            print("Words (by frequency): ", file=fh)
-            print("Symbols (alphabetical order): ", file=fh)
-            print("Symbols (by frequency): ", file=fh)
-            print("Prefixes (by frequency): ", file=fh)
-            print("Suffixes (by frequency): ", file=fh)
+        # --------------------------- #
+        # ---- impresion de datos ----#
+        # --------------------------- #
+           
+            print(f"Lines: {stats['nlines']}", file=fh) # numero lineas
+            print(f"Number words (including stopwords) : {stats['nwords']}", file=fh)    # numero palabras sin incluir stopwords
+            print(f"Vocabulary size: {len(stats['word'])}", file=fh)    # tamaño de vocabulario (numero de palabras distintas)
+            print(f"Number of symbols: {self.sum_freq(stats['symbol']) }", file=fh) # numero de simbolos totales
+            print(f"Number of different symbols: {len(stats['symbol'])}", file=fh)  # numero de simbolos diferente
+            print(f"Words (alphabetical order): " , file=fh)    # palabras en orden alfabetico
+            dicW = stats['word'].items()                        # variable que contiene la lista de elementos del diccionario word
+            self.mostrar_dict(sorted(dicW), fh, full)           # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, en orden alfabetico
+            print("Words (by frequency): ", file=fh)    # palabras en orden de frecuencia
+            self.mostrar_dict(sorted(dicW, key=lambda x: x[1], reverse=True), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, segun la frecuencia          
+            print("Symbols (alphabetical order): ", file=fh)    # simbolos en orden alfabetico
+            dicL = stats['symbol'].items()  # variable que contiene la lista de elementos del diccionario symbol
+            self.mostrar_dict(sorted(dicL), fh, full)   # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, en orden alfabetico
+            print("Symbols (by frequency): ", file=fh)  # simbolos en orden de frecuencia
+            self.mostrar_dict(sorted(dicL, key=lambda x: x[1], reverse=True), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, segun la frecuencia           
+            print("Prefixes (by frequency): ", file=fh) # prefijos en orden de frecuencia
+            print("Suffixes (by frequency): ", file=fh) # sufijos en orden de frecuencia
             pass
 
-
-    def mostrar_dict(self, dic:dict, filename):
-        for item in dic.items():
-            print(f"{item} \n", file=filename)
+    # funcion que muestra (formateado) un diccionario que se le pasa como la lista de sus elementos
+    def mostrar_dict(self, l, filename, cond):
+        # si la condicion es negativa limita el numero de elementos visibles de la lista a 20
+        i = 0
+        if not cond:
+            limit = 20
+        for key, value in l:
+            # si !cond y el numero de elementos supera el limite salta del bucle
+            if not cond and i >= limit:
+                break
+            # escribe en el fichero que le hemos pasado como parametro las key y los valores con el formato key:value
+            print(f"\t{key} : {value}", file=filename)
+            i += 1
     
+    # funcion que devuelve al suma de las frecuencias de los valores de todas las keys en un diccionario
+    #   en este caso lo utilizamos para saber la suma de las frecuencias de aparicion de todos los simbolos
     def sum_freq(self, f:dict):
         res = 0
-        
+        # bucle en el que recorremos todos los elementos del diccionario
         for key, value in f.items():
+            # vamos sumando las frecuecias en una variables resultado
             res += value
-
+        # devolvemos el total
         return res
 
     def file_stats(self, fullfilename:str, lower:bool, stopwordsfile:Optional[str], bigrams:bool, full:bool):
@@ -98,19 +117,30 @@ class WordCounter:
         # COMPLETAR
         # AYUDA: line = self.clean_re.sub(' ', line)
         with open(fullfilename, 'r', encoding='utf-8') as fh:
+            # recorremos todas las lineas en el fichero
             for line in fh:
+                # por cada linea incrementamos la variable del diccionario nlines en 1
                 sts['nlines'] += 1
+                # cambiamos los simbolos que no sean letras y/o numeros y los sustituimos por espacios en blanco
                 line = self.clean_re.sub(' ', line)
+                # dividimos la linea en una lista que contiene todas las palabras de la linea
                 line = line.split()
+                # recorremos las palabras de la lista 
                 for word in line:
+                    # por cada palabra en la lista incrementamos en 1 la variable del diccionario nwords
                     sts['nwords'] += 1
+                    # checkeamos que la palabra esté en el diccionario y le incrementamos 1 a su valor
+                    #   en el caso de que no haya palabras se añade y su valor será 1
                     sts['word'][word] = sts['word'].get(word, 0) + 1
                     for s in word:
+                        # checkeamos que el simbolo esté en el diccionario y le incrementamos 1 a su valor
+                        #   en el caso de que no esté el simbolo se añade y su valor será 1
                         sts['symbol'][s] = sts['symbol'].get(s, 0) + 1
 
 
         filename, ext0 = os.path.splitext(fullfilename)
 
+        # el nombre del nuevo fichero será el mismo que el anterior pero añadiendo _stats antes de la extension
         new_filename = filename + "_stats" + ext0 # cambiar
         self.write_stats(new_filename, sts, stopwordsfile is not None, full)
 
