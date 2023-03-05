@@ -47,16 +47,18 @@ class WordCounter:
             print(f"Number of symbols: {self.sum_freq(stats['symbol']) }", file=fh) # numero de simbolos totales
             print(f"Number of different symbols: {len(stats['symbol'])}", file=fh)  # numero de simbolos diferente
             print(f"Words (alphabetical order): " , file=fh)    # palabras en orden alfabetico
-            dicW = stats['word'].items()                        # variable que contiene la lista de elementos del diccionario word
-            self.mostrar_dict(sorted(dicW), fh, full)           # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, en orden alfabetico
+                                   
+            self.mostrar_dict(sorted(stats['word'].items()), fh, full)           # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, en orden alfabetico
             print("Words (by frequency): ", file=fh)    # palabras en orden de frecuencia
-            self.mostrar_dict(sorted(dicW, key=lambda x: x[1], reverse=True), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, segun la frecuencia          
+            self.mostrar_dict(sort_dic_by_values(stats['word']), fh, full)
+            #self.mostrar_dict(sorted(dicW, key=lambda x: x[1], reverse=True), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, segun la frecuencia          
             print("Symbols (alphabetical order): ", file=fh)    # simbolos en orden alfabetico
-            dicL = stats['symbol'].items()  # variable que contiene la lista de elementos del diccionario symbol
-            self.mostrar_dict(sorted(dicL), fh, full)   # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, en orden alfabetico
+
+            self.mostrar_dict(sorted(stats['symbol'].items()), fh, full)   # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, en orden alfabetico
             print("Symbols (by frequency): ", file=fh)  # simbolos en orden de frecuencia
-            self.mostrar_dict(sorted(dicL, key=lambda x: x[1], reverse=True), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, segun la frecuencia           
+            self.mostrar_dict(sort_dic_by_values(stats['symbol']), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, segun la frecuencia           
             print("Prefixes (by frequency): ", file=fh) # prefijos en orden de frecuencia
+            self.mostrar_dict(sort_dic_by_values(stats['prefix']), fh, full)
             print("Suffixes (by frequency): ", file=fh) # sufijos en orden de frecuencia
             pass
 
@@ -132,11 +134,14 @@ class WordCounter:
                     # checkeamos que la palabra esté en el diccionario y le incrementamos 1 a su valor
                     #   en el caso de que no haya palabras se añade y su valor será 1
                     sts['word'][word] = sts['word'].get(word, 0) + 1
+                    pref = ""
                     for s in word:
                         # checkeamos que el simbolo esté en el diccionario y le incrementamos 1 a su valor
                         #   en el caso de que no esté el simbolo se añade y su valor será 1
                         sts['symbol'][s] = sts['symbol'].get(s, 0) + 1
-
+                        pref += s
+                        if len(pref) > 1 and len(pref) <= 4 and len(pref) < len(word):
+                            sts['prefix'][pref + "-"] = sts['prefix'].get(pref + "-", 0) + 1                    
 
         filename, ext0 = os.path.splitext(fullfilename)
 
