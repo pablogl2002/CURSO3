@@ -19,6 +19,8 @@ public class PPhilo extends JPanel implements ActionListener {
         StateManager sman= new StateManager(text);
         Thread[] philo=new Philo[5];
         Table t; 
+        
+        /* MODIFICAR */
         switch (type) {
         case 0: 
             t = new RegularTable(sman);
@@ -27,24 +29,32 @@ public class PPhilo extends JPanel implements ActionListener {
         case 1: 
             System.out.println("Assimetry (last/but last).- IMPLEMENTED");
             t = new RegularTable(sman);
-            for (i=0; i<4; i++) philo[i]=new Philo(i,cycles,delay,t); 
-            philo[4] = new LefthandedPhilo(i, cycles, delay,t);
+            //for (i=0; i<5; i++) philo[i]=new Philo(i,cycles,delay,t); 
+            for (i=0; i<4; i++) philo[i]=new Philo(i,cycles,delay,t);
+            // completar
+            philo[4] = new LefthandedPhilo(i, cycles, delay, t);
+            
             break;
         case 2: 
             System.out.println("Assimetry (even/odd).- IMPLEMENTED");
             t = new RegularTable(sman);
+            
             for (i=0; i<5; i++) {
-                if (i%2 == 0) philo[i]=new Philo(i,cycles,delay,t);
-                else philo[i] = new LefthandedPhilo(i, cycles, delay,t);
-            } 
+                if (i % 2 == 0)
+                    philo[i]=new Philo(i,cycles,delay,t);
+                else philo[i] = new LefthandedPhilo(i, cycles, delay, t);    
+            }
+            
             break;
         case 3: 
             System.out.println("Both or None.- IMPLEMENTED");
+            // modificar
             t = new BothOrNoneTable(sman);
             for (i=0; i<5; i++) philo[i]=new BothOrNonePhilo(i,cycles,delay,t);
             break;
         case 4: 
             System.out.println("Limited capacity Dining Room.- IMPLEMENTED");
+            // modificar
             t = new LimitedTable(sman);
             for (i=0; i<5; i++) philo[i]=new LimitedPhilo(i,cycles,delay,t);
             break;
