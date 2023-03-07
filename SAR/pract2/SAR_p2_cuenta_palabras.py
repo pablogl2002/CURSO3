@@ -44,12 +44,13 @@ class WordCounter:
             print(f"Lines: {stats['nlines']}", file=fh) # numero lineas
             print(f"Number words (including stopwords): {stats['nwords']}", file=fh)    # numero palabras incluyendo stopwords
             if use_stopwords:
-                print(f"Number words (including stopwords): {stats['nwords']}", file=fh)    # numero palabras sin incluir stopwords                
+                print(f"Number words (without stopwords): {self.sum_freq(stats['word'])}", file=fh)    # numero palabras sin incluir stopwords                
+
             print(f"Vocabulary size: {len(stats['word'])}", file=fh)    # tamaño de vocabulario (numero de palabras distintas)
             print(f"Number of symbols: {self.sum_freq(stats['symbol']) }", file=fh) # numero de simbolos totales
             print(f"Number of different symbols: {len(stats['symbol'])}", file=fh)  # numero de simbolos diferente
             print(f"Words (alphabetical order): " , file=fh)    # palabras en orden alfabetico
-                                   
+            
             self.mostrar_dict(sorted(stats['word'].items()), fh, full)           # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, en orden alfabetico
             print("Words (by frequency):", file=fh)    # palabras en orden de frecuencia
             self.mostrar_dict(sort_dic_by_values(stats['word']), fh, full)
@@ -59,6 +60,9 @@ class WordCounter:
             self.mostrar_dict(sorted(stats['symbol'].items()), fh, full)   # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, en orden alfabetico
             print("Symbols (by frequency): ", file=fh)  # simbolos en orden de frecuencia
             self.mostrar_dict(sort_dic_by_values(stats['symbol']), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, segun la frecuencia           
+            
+
+
             print("Prefixes (by frequency): ", file=fh) # prefijos en orden de frecuencia
             self.mostrar_dict(sort_dic_by_values(stats['prefix']), fh, full)
             print("Suffixes (by frequency): ", file=fh) # sufijos en orden de frecuencia
@@ -104,6 +108,7 @@ class WordCounter:
 
         stopwords = [] if stopwordsfile is None else open(stopwordsfile, encoding='utf-8').read().split()
 
+
         # variables for results
 
         sts = {
@@ -122,13 +127,14 @@ class WordCounter:
         # COMPLETAR
         # AYUDA: line = self.clean_re.sub(' ', line)
         with open(fullfilename, 'r', encoding='utf-8') as fh:
-
+            
             # recorremos todas las lineas en el fichero
             for line in fh:
                 # por cada linea incrementamos la variable del diccionario nlines en 1
                 sts['nlines'] += 1
                 # cambiamos los simbolos que no sean letras y/o numeros y los sustituimos por espacios en blanco
                 line = self.clean_re.sub(' ', line)
+
                 # dividimos la linea en una lista que contiene todas las palabras de la linea
                 line = line.split()
                 # recorremos las palabras de la lista 
@@ -137,33 +143,44 @@ class WordCounter:
                         word = word.lower()
                     # por cada palabra en la lista incrementamos en 1 la variable del diccionario nwords
                     sts['nwords'] += 1
-                    # checkeamos que la palabra esté en el diccionario y le incrementamos 1 a su valor
-                    #   en el caso de que no haya palabras se añade y su valor será 1
-                    sts['word'][word] = sts['word'].get(word, 0) + 1
-                    pref = ""
-                    suf = ""
-                    i = len(word) - 1
-                    for s in word:
-                        # checkeamos que el simbolo esté en el diccionario y le incrementamos 1 a su valor
-                        #   en el caso de que no esté el simbolo se añade y su valor será 1
-                        sts['symbol'][s] = sts['symbol'].get(s, 0) + 1
-                        pref += s
-                        if len(pref) > 1 and len(pref) <= 4 and len(pref) < len(word):
-                            sts['prefix'][pref + "-"] = sts['prefix'].get(pref + "-", 0) + 1
+                    if word not in stopwords: 
+                        # checkeamos que la palabra esté en el diccionario y le incrementamos 1 a su valor
+                        #   en el caso de que no haya palabras se añade y su valor será 1
+                        sts['word'][word] = sts['word'].get(word, 0) + 1
+                        pref = ""
+                        suf = ""
+                        i = len(word) - 1
+                        for s in word:
+                            # checkeamos que el simbolo esté en el diccionario y le incrementamos 1 a su valor
+                            #   en el caso de que no esté el simbolo se añade y su valor será 1
+                            sts['symbol'][s] = sts['symbol'].get(s, 0) + 1
+                            pref += s
+                            if len(pref) > 1 and len(pref) <= 4 and len(pref) < len(word):
+                                sts['prefix'][pref + "-"] = sts['prefix'].get(pref + "-", 0) + 1
 
-                        suf = word[i] + suf
-                        if len(suf) > 1 and len(suf) <= 4 and len(suf) < len(word):
-                            sts['suffix']["-" + suf] = sts['suffix'].get("-" + suf, 0) + 1
-                        i -= 1
+                            suf = word[i] + suf
+                            if len(suf) > 1 and len(suf) <= 4 and len(suf) < len(word):
+                                sts['suffix']["-" + suf] = sts['suffix'].get("-" + suf, 0) + 1
+                            i -= 1
 
         filename, ext0 = os.path.splitext(fullfilename)            
 
         filename += '_'
+        param = False
         if lower:
             filename += 'l'
+            param = True
         if stopwordsfile is not None:
             filename += 's'
-        if lower or stopwordsfile is not None:
+            param = True
+        if bigrams:
+            filename += 'b'
+            param = True
+        if full:
+            filename += 'f'
+            param = True
+
+        if param:
             filename += '_'
 
         # el nombre del nuevo fichero será el mismo que el anterior pero añadiendo _stats antes de la extension
