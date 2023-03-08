@@ -26,7 +26,7 @@ class WordCounter:
         """
         self.clean_re = re.compile('\W+')
 
-    def write_stats(self, filename:str, stats:dict, use_stopwords:bool, full:bool):
+    def write_stats(self, filename:str, stats:dict, use_stopwords:bool, full:bool, bigrams:bool):
         """
         Este método escribe en fichero las estadísticas de un texto
             
@@ -49,23 +49,34 @@ class WordCounter:
             print(f"Vocabulary size: {len(stats['word'])}", file=fh)    # tamaño de vocabulario (numero de palabras distintas)
             print(f"Number of symbols: {self.sum_freq(stats['symbol']) }", file=fh) # numero de simbolos totales
             print(f"Number of different symbols: {len(stats['symbol'])}", file=fh)  # numero de simbolos diferente
-            print(f"Words (alphabetical order): " , file=fh)    # palabras en orden alfabetico
             
+            print(f"Words (alphabetical order):" , file=fh)    # palabras en orden alfabetico
             self.mostrar_dict(sorted(stats['word'].items()), fh, full)           # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, en orden alfabetico
             print("Words (by frequency):", file=fh)    # palabras en orden de frecuencia
             self.mostrar_dict(sort_dic_by_values(stats['word']), fh, full)
             #self.mostrar_dict(sorted(dicW, key=lambda x: x[1], reverse=True), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso las palabras y su frecuencia de aparicion, segun la frecuencia          
-            print("Symbols (alphabetical order): ", file=fh)    # simbolos en orden alfabetico
+            print("Symbols (alphabetical order):", file=fh)    # simbolos en orden alfabetico
 
             self.mostrar_dict(sorted(stats['symbol'].items()), fh, full)   # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, en orden alfabetico
-            print("Symbols (by frequency): ", file=fh)  # simbolos en orden de frecuencia
+            print("Symbols (by frequency):", file=fh)  # simbolos en orden de frecuencia
             self.mostrar_dict(sort_dic_by_values(stats['symbol']), fh, full) # llamada a una funcion que imprime una lista con cierto formato, en este caso los simbolos y su frecuencia de aparicion, segun la frecuencia           
             
+            
+            if bigrams:
+                print("Word pairs (alphabetical order):", file=fh)
+                self.mostrar_dict(sorted(stats['biword'].items()), fh, full)
+                print("Word pairs (by frequency):", file=fh)
+                self.mostrar_dict(sort_dic_by_values(stats['biword']), fh, full)
+
+                print("Symbol pairs (alphabetical order):", file=fh)
+                self.mostrar_dict(sorted(stats['bisymbol'].items()), fh, full)
+                print("Symbol pairs (by frequency):", file=fh)
+                self.mostrar_dict(sort_dic_by_values(stats['bisymbol']), fh, full)
 
 
-            print("Prefixes (by frequency): ", file=fh) # prefijos en orden de frecuencia
+            print("Prefixes (by frequency):", file=fh) # prefijos en orden de frecuencia
             self.mostrar_dict(sort_dic_by_values(stats['prefix']), fh, full)
-            print("Suffixes (by frequency): ", file=fh) # sufijos en orden de frecuencia
+            print("Suffixes (by frequency):", file=fh) # sufijos en orden de frecuencia
             self.mostrar_dict(sort_dic_by_values(stats['suffix']), fh, full)
             pass
 
@@ -82,7 +93,7 @@ class WordCounter:
             # escribe en el fichero que le hemos pasado como parametro las key y los valores con el formato key:value
             print(f"\t{key}: {value}", file=filename)
             i += 1
-    
+
     # funcion que devuelve al suma de las frecuencias de los valores de todas las keys en un diccionario
     #   en este caso lo utilizamos para saber la suma de las frecuencias de aparicion de todos los simbolos
     def sum_freq(self, f:dict):
@@ -93,6 +104,39 @@ class WordCounter:
             res += value
         # devolvemos el total
         return res
+
+
+    def bigram_word(self, d:dict, lineAr, st):
+        res:dict = d
+        
+        lineAr = ['$'] + lineAr + ['$']
+
+        i = 0
+        while i < len(lineAr) - 1:
+            word1 = lineAr[i]
+            word2 = lineAr[i + 1]
+            if word1 not in st and word2 not in st:                
+                aux = word1 + " " + word2
+                if aux != '$ $':
+                    res[aux] = res.get(aux, 0) + 1
+
+            i += 1               
+        return res
+
+
+    def bigram_symbol(self, d:dict, word):
+        res:dict = d
+        
+        i = 0
+        while i < len(word) - 1:
+            s1 = word[i]
+            s2 = word[i + 1]
+            aux = s1 + s2
+            res[aux] = res.get(aux, 0) + 1
+            i += 1
+
+        return res
+            
 
     def file_stats(self, fullfilename:str, lower:bool, stopwordsfile:Optional[str], bigrams:bool, full:bool):
         """
@@ -134,14 +178,19 @@ class WordCounter:
                 sts['nlines'] += 1
                 # cambiamos los simbolos que no sean letras y/o numeros y los sustituimos por espacios en blanco
                 line = self.clean_re.sub(' ', line)
+#                if stopwords != []:
 
                 # dividimos la linea en una lista que contiene todas las palabras de la linea
                 line = line.split()
-                # recorremos las palabras de la lista 
+                # recorremos las palabras de la lista
+                if bigrams:
+                    sts['biword'] = self.bigram_word(sts['biword'], line, stopwords)
+
                 for word in line:
                     if lower:
                         word = word.lower()
                     # por cada palabra en la lista incrementamos en 1 la variable del diccionario nwords
+                    #if word != '$':
                     sts['nwords'] += 1
                     if word not in stopwords: 
                         # checkeamos que la palabra esté en el diccionario y le incrementamos 1 a su valor
@@ -150,6 +199,9 @@ class WordCounter:
                         pref = ""
                         suf = ""
                         i = len(word) - 1
+                        if bigrams:
+                            sts['bisymbol'] = self.bigram_symbol(sts['bisymbol'], word)
+
                         for s in word:
                             # checkeamos que el simbolo esté en el diccionario y le incrementamos 1 a su valor
                             #   en el caso de que no esté el simbolo se añade y su valor será 1
@@ -185,7 +237,7 @@ class WordCounter:
 
         # el nombre del nuevo fichero será el mismo que el anterior pero añadiendo _stats antes de la extension
         new_filename = filename + "stats" + ext0 # cambiar
-        self.write_stats(new_filename, sts, stopwordsfile is not None, full)
+        self.write_stats(new_filename, sts, stopwordsfile is not None, full, bigrams)
 
     def compute_files(self, filenames:str, **args):
         """

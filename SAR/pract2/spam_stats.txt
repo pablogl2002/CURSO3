@@ -3,7 +3,7 @@ Number words (including stopwords): 77
 Vocabulary size: 24
 Number of symbols: 324
 Number of different symbols: 29
-Words (alphabetical order): 
+Words (alphabetical order):
 	Bacon: 6
 	Egg: 8
 	Lobster: 1
@@ -45,7 +45,7 @@ Words (by frequency):
 	fried: 1
 	garnished: 1
 	on: 1
-Symbols (alphabetical order): 
+Symbols (alphabetical order):
 	B: 6
 	E: 8
 	L: 1
@@ -66,7 +66,7 @@ Symbols (alphabetical order):
 	m: 28
 	n: 23
 	o: 11
-Symbols (by frequency): 
+Symbols (by frequency):
 	a: 63
 	p: 29
 	S: 28
@@ -87,7 +87,7 @@ Symbols (by frequency):
 	b: 4
 	h: 4
 	f: 3
-Prefixes (by frequency): 
+Prefixes (by frequency):
 	Sp-: 27
 	Spa-: 27
 	an-: 12
@@ -108,7 +108,7 @@ Prefixes (by frequency):
 	Morn-: 1
 	Sa-: 1
 	Sau-: 1
-Suffixes (by frequency): 
+Suffixes (by frequency):
 	-am: 27
 	-pam: 27
 	-nd: 12
