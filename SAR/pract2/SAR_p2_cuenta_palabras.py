@@ -1,6 +1,6 @@
 #! -*- encoding: utf8 -*-
 
-## Nombres: 
+## Nombres: Pablo García López y Jorge Baeza García
 
 ########################################################################
 ########################################################################
@@ -149,7 +149,6 @@ class WordCounter:
         # devuelve el diccionario resultado
         return res
             
-
     def file_stats(self, fullfilename:str, lower:bool, stopwordsfile:Optional[str], bigrams:bool, full:bool):
         """
         Este método calcula las estadísticas de un fichero de texto
@@ -163,7 +162,6 @@ class WordCounter:
         """
 
         stopwords = [] if stopwordsfile is None else open(stopwordsfile, encoding='utf-8').read().split()
-
 
         # variables for results
 
@@ -190,58 +188,45 @@ class WordCounter:
                 sts['nlines'] += 1
                 # cambiamos los simbolos que no sean letras y/o numeros y los sustituimos por espacios en blanco
                 line = self.clean_re.sub(' ', line)
-#                if stopwords != []:
-
                 # dividimos la linea en una lista que contiene todas las palabras de la linea
                 line = line.split()
-
                 # en el caso de tener q hacer en analisis por bigramas
                 if bigrams:
                     # igualamos el diccionario bigramas a una funcion que añade las palabras de una linea por bigramas al diccionario
                     sts['biword'] = self.bigram_word(sts['biword'], line, stopwords)
-
                 # recorremos las palabras de la lista de palabras 'line'
                 for word in line:
                     # si se pide en minusculas
                     if lower:
                         # se pasa la palabra a minusculas
                         word = word.lower()
-
                     # por cada palabra en la lista incrementamos en 1 la variable del diccionario nwords
                     sts['nwords'] += 1
-
                     # filtramos los stopwords
                     if word not in stopwords: 
                         # checkeamos que la palabra esté en el diccionario y le incrementamos 1 a su valor
                         #   en el caso de que no haya palabras se añade y su valor será 1
                         sts['word'][word] = sts['word'].get(word, 0) + 1
-                        
-                       
                         # en el caso de tener q hacer en analisis por bigramas
                         if bigrams:
                             # igualamos el diccionario bigramas a una funcion que añade los simbolos de una palabra por bigramas al diccionario                    
                             sts['bisymbol'] = self.bigram_symbol(sts['bisymbol'], word)
-
                         # variables auxiliares para los prefijos y sufijos
                         pref = ""
                         suf = ""
-                        
                         # variable para recorrer la palabra al reves y poder sacar los sufijos al mismo tiempo
                         i = len(word) - 1
-
                         # bucle que recorre los simbolos de una palabra
                         for s in word:
                             # checkeamos que el simbolo esté en el diccionario y le incrementamos 1 a su valor
                             #   en el caso de que no esté el simbolo se añade y su valor será 1
                             sts['symbol'][s] = sts['symbol'].get(s, 0) + 1
-
                             # añadimos el simbolo 's' a la variable auxiliar pref
                             pref += s
                             # comprueba q el prefijo es apto
                             if len(pref) > 1 and len(pref) <= 4 and len(pref) < len(word):
                                 # añade el prefijo al diccionario de prefijos
                                 sts['prefix'][pref + "-"] = sts['prefix'].get(pref + "-", 0) + 1
-
                             # añadimos una letra en la posicion i al sufijo 
                             suf = word[i] + suf
                             # comprueba que el sufijo es apto
