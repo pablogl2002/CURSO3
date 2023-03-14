@@ -1,0 +1,41 @@
+{
+    "host": "gtirouter.dsic.upv.es",
+    "manager": "pgarlop_manager",
+    "service": "pgarlop_service",
+    "axis": [
+        {
+            "rank": "BDISoldier",
+            "name": "soldier_axis_pgarlop",
+            "password": "secret"
+        },
+        {
+            "rank": "BDIMedic",
+            "name": "medic_axis_pgarlop",
+            "password": "secret",
+			"amount": 2
+        },
+        {
+            "rank": "BDIFieldOp",
+            "name": "fieldops_axis_pgarlop",
+            "password": "secret"
+        }
+    ],
+    "allied": [
+        {
+            "rank": "BDISoldier",
+            "name": "soldier_allied_pgarlop",
+            "password": "secret"
+        },
+        {
+            "rank": "BDIMedic",
+            "name": "medic_allied_pgarlop",
+            "password": "secret",
+            "amount": 2
+        },
+        {
+            "rank": "BDIFieldOp",
+            "name": "fieldops_allied_pgarlop",
+            "password": "secret"
+        }
+    ]
+}
