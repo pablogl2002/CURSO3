@@ -40,21 +40,16 @@ class Monkey():
         # COMPLETAR #
         #############
 
-        self.r2(sentence)
-        sentence = sentence.split()
-
-        tupla = ()
-
-
-
         for i in range(n-1):
-            sentence = ['$'] + sentence
-        sentence += ['$']
+            sentence = '$' + sentence    
+        sentence += '$'
 
-        sentence
+        sentence = self.r1.split(sentence)
 
-        for word in sentence:
-            if self.r1(word):
+        for i in len(sentence):
+            sentence[i] = self.r2.split(sentence[i])
+        
+        
 
 
     def compute_lm(self, filenames:List[str], lm_name:str, n:int):
