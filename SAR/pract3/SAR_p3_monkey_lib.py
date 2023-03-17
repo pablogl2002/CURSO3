@@ -39,18 +39,14 @@ class Monkey():
         #############
         # COMPLETAR #
         #############
-
-        for i in range(n-1):
-            sentence = '$' + sentence    
-        sentence += '$'
-
-        sentence = self.r1.split(sentence)
-
-        for i in len(sentence):
-            sentence[i] = self.r2.split(sentence[i])
         
-        
+        sentence = self.r2.split(sentence)
 
+        for i in range(1, self.get_n() - 1):
+            sentence = ['$'] + sentence
+        sentence += ['$']
+
+        
 
     def compute_lm(self, filenames:List[str], lm_name:str, n:int):
         self.info = {'name': lm_name, 'filenames': filenames, 'n': n, 'lm': {}}
@@ -64,7 +60,10 @@ class Monkey():
                 
                 line = line.lower()
 
-                self.index_sentence(line)
+                frase = self.r1.split(line)
+
+                for i in len(frase):
+                    self.index_sentence(frase[i])
 
                 pass
         for i in range(2, n+1):
