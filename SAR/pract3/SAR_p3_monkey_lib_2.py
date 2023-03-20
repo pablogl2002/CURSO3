@@ -42,30 +42,49 @@ class Monkey():
         
         sentence = self.r2.split(sentence)
 
-        for i in range(1, self.get_n() - 1):
+        for i in range(self.get_n() - 1):
             sentence = ['$'] + sentence
         sentence += ['$']
 
-        
+        for word in sentence:
+            """
+            l = []
+            tup = tuple()
+            for i in range(self.get_n()):
+                l = l.(word)
+
+            tup = tuple(l)
+
+        self.info['lm'] = {}
+                    """
+
 
     def compute_lm(self, filenames:List[str], lm_name:str, n:int):
         self.info = {'name': lm_name, 'filenames': filenames, 'n': n, 'lm': {}}
         for i in range(2, n+1):
             self.info['lm'][i] = {}
         for filename in filenames:
+            buffer = ""
+            frase = ""
             for line in open(filename, encoding='utf-8'):
                 #############
                 # COMPLETAR #
                 #############
-                
+
                 line = line.lower()
+                buffer = ""
 
                 frase = self.r1.split(line)
 
-                for i in len(frase):
+                for i in range(len(frase)):
                     self.index_sentence(frase[i])
+                    buffer = line[len(frase[i]) - 1:]
+                    print(frase[i])
+                    print('-----------------------------------')
+                    print(buffer)
+                    print('++++++++++++++++++++++++++++++++++++++')
 
-                pass
+
         for i in range(2, n+1):
             convert_to_lm_dict(self.info['lm'][i])
 
