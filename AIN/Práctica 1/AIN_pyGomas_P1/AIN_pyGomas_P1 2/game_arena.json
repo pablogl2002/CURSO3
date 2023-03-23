@@ -1,13 +1,13 @@
 {
     "host": "gtirouter.dsic.upv.es",
-    "manager": "manager_yourlogin",
+    "manager": "manager_pgarlop",
     "manager_password": "secret",
-    "service": "service_yourlogin",
+    "service": "service_pgarlop",
     "service_password": "secret",
     "axis": [
 		{
             "rank": "BDISoldier",
-            "name": "luchador_yourlogin",
+            "name": "luchador_pgarlop",
             "password": "secret",
             "amount": 21,
             "asl": "luchador.asl"
@@ -16,14 +16,14 @@
      "allied": [
                 {
             "rank": "invencibleM.BDIMInvencible",
-            "name": "medic_yourlogin",
+            "name": "medic_pgarlop",
             "password": "secret",
             "amount": 1,
             "asl": "medic_arena.asl"
         }, 
         {
             "rank": "invencibleF.BDIFInvencible",
-            "name": "fieldop_yourlogin",
+            "name": "fieldop_pgarlop",
             "password": "secret",
             "amount": 3,
             "asl": "fieldop_arena.asl"
