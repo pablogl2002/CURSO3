@@ -2,10 +2,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.*;
 
 /**
- * @author CSD Juansa Sendra
- * @version 2021
+ * Write a description of class Terrain3 here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
  */
-public class Terrain3 implements Terrain {
+public class Terrain3
+{
     Viewer v;
     Lock mutex;
     Condition c[][];
@@ -14,37 +17,32 @@ public class Terrain3 implements Terrain {
         v=new Viewer(t,ants,movs,msg);
         mutex = new ReentrantLock();
         c = new Condition[t][t];
-        for (int i = 0; i < t; i++)
-            for (int j = 0; j < t; j++)
+        for (int i = 0; i < t; i++) 
+            for (int j = 0; j < t; t++)
                 c[i][j] = mutex.newCondition();
-        
+
     }
-    
-    public void     hi      (int a) {  
+    public void     hi      (int a) {
         try {
             mutex.lock();
-            v.hi(a); 
-        } finally {
-            mutex.unlock();
-        }   
+            v.hi(a);
+        } finally { mutex.unlock(); }
     }
-    public void     bye     (int a) { 
+    public void     bye     (int a) {
         try {
             mutex.lock();
-            Pos p = v.getPos(a);
-            c[p.x][p.y].signalAll();
             v.bye(a);
         } finally {
             mutex.unlock();
-        } 
+        }
     }
     public void     move    (int a) throws InterruptedException {
         try {
             mutex.lock();
-            Pos p = v.getPos(a);
             v.turn(a); Pos dest=v.dest(a); 
+            Pos p = v.getPos(a);
             while (v.occupied(dest)) {
-                if (c[p.x][p.y].await(300,TimeUnit.MILLISECONDS)) 
+                if (c[p.x][p.y].await(300, TimeUnit.MILLISECONDS))
                     v.retry(a);
                 else {
                     v.chgDir(a);
@@ -56,6 +54,6 @@ public class Terrain3 implements Terrain {
             c[p.x][p.y].signalAll();
         } finally {
             mutex.unlock();
-        }       
+        }
     }
 }
