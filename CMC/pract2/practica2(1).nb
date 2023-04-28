@@ -1,0 +1,125 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4641,        117]
+NotebookOptionsPosition[      3562,         92]
+NotebookOutlinePosition[      4096,        111]
+CellTagsIndexPosition[      4053,        108]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Pablo Garc\[IAcute]a L\[OAcute]pez \n3CO21",
+ FontFamily->"Lato"]], "Text",
+ CellChangeTimes->{{3.8904512712009783`*^9, 3.89045128729362*^9}},
+ TextAlignment->Right,ExpressionUUID->"a8df0991-f1f5-4fa4-bb39-8c33556779ce"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Practica 2",
+ FontSize->50]], "Title",
+ CellChangeTimes->{{3.888498853807425*^9, 3.888498916842621*^9}, {
+   3.888498965927905*^9, 3.888499005696692*^9}, 3.888511454088642*^9, {
+   3.891604785098001*^9, 
+   3.891604785687149*^9}},ExpressionUUID->"4d990b01-d606-4037-a29f-\
+597f81294d87"],
+
+Cell["Parte 1: ", "Subtitle",
+ CellChangeTimes->{{3.8884990363484697`*^9, 3.8884990728853483`*^9}, {
+  3.891604789181786*^9, 
+  3.8916047892773867`*^9}},ExpressionUUID->"1454751d-e18f-45ca-ab62-\
+90314c3d2fe7"],
+
+Cell["\<\
+\tAut\[OAcute]matas Celulares - Fundamentos b\[AAcute]sicos y el Juego de la \
+Vida\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.888499080080258*^9, 3.888499082100189*^9}, {
+  3.891604817873233*^9, 
+  3.891604827541884*^9}},ExpressionUUID->"15a1ffad-34da-485c-a1a5-\
+a7a28e1a9b98"],
+
+Cell[TextData[StyleBox["1. Dise\[NTilde]e un m\[OAcute]dulo Mathematica que, \
+tomando como entrada los siguientes par\[AAcute]metros, nos proporcione como \
+salida la simulaci\[OAcute]n del AC unidimensional correspondiente\n\n\t\t\
+Inicial: Lista con la configuraci\[OAcute]n inicial del AC\n\t\tRegla: Valor \
+entero que codifica la regla como un n\[UAcute]mero de Wolfram\n\t\tt: N\
+\[UAcute]mero de configuraciones a calcular a partir de la configuraci\
+\[OAcute]n inicial",
+ FontFamily->"Lato",
+ FontSize->14]], "Text",
+ CellChangeTimes->{
+  3.8903652132053137`*^9, {3.891604852209312*^9, 
+   3.8916048807310038`*^9}},ExpressionUUID->"7ea35bda-ba9c-450a-8588-\
+e42b4a3cb2ad"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ejercicio1", "[", 
+    RowBox[{
+    "Inicial_List", ",", " ", "Regla_Integer", ",", " ", "t_Integer"}], " ", 
+    "]"}], ":=", " ", 
+   RowBox[{"Moduelo", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ","}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.890450931447679*^9, 3.89045110820089*^9}, {
+   3.890451139523587*^9, 3.890451170458116*^9}, {3.8904514164768057`*^9, 
+   3.8904514649115057`*^9}, {3.890451576258376*^9, 3.8904515765702343`*^9}, {
+   3.89045163906562*^9, 3.890451677740222*^9}, {3.8904518765964727`*^9, 
+   3.890451936409794*^9}, {3.8904520161188*^9, 3.890452044639328*^9}, 
+   3.891604888994617*^9, {3.891607031091338*^9, 
+   3.891607095549725*^9}},ExpressionUUID->"784cfc69-7d91-43e6-99e4-\
+2be3d8bb8cb6"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.88851165852953*^9, 3.88851166934334*^9}, {
+   3.88851179296209*^9, 3.888511799448251*^9}, {3.890374501649531*^9, 
+   3.890374528663485*^9}, 3.8904511235390377`*^9, 3.8916048919652643`*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"b495e1d6-6627-4d49-9634-fa847d80fb5c"]
+}, Open  ]]
+},
+WindowSize->{720, 855},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+Magnification:>0.9 Inherited,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Report"}, "StandardReport.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"91f87b1a-817d-46d4-8b4b-ab51db309323"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 244, 3, 49, "Text",ExpressionUUID->"a8df0991-f1f5-4fa4-bb39-8c33556779ce"],
+Cell[CellGroupData[{
+Cell[827, 27, 311, 6, 99, "Title",ExpressionUUID->"4d990b01-d606-4037-a29f-597f81294d87"],
+Cell[1141, 35, 210, 4, 32, "Subtitle",ExpressionUUID->"1454751d-e18f-45ca-ab62-90314c3d2fe7"],
+Cell[1354, 41, 289, 7, 30, "Subsubtitle",ExpressionUUID->"15a1ffad-34da-485c-a1a5-a7a28e1a9b98"],
+Cell[1646, 50, 681, 12, 116, "Text",ExpressionUUID->"7ea35bda-ba9c-450a-8588-e42b4a3cb2ad"],
+Cell[2330, 64, 898, 19, 136, "Input",ExpressionUUID->"784cfc69-7d91-43e6-99e4-2be3d8bb8cb6"],
+Cell[3231, 85, 315, 4, 36, "Input",ExpressionUUID->"b495e1d6-6627-4d49-9634-fa847d80fb5c"]
+}, Open  ]]
+}
+]
+*)
+
