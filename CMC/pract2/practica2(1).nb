@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    182816,       3939]
-NotebookOptionsPosition[    180022,       3886]
-NotebookOutlinePosition[    180777,       3911]
-CellTagsIndexPosition[    180734,       3908]
+NotebookDataLength[    197884,       4183]
+NotebookOptionsPosition[    195090,       4130]
+NotebookOutlinePosition[    195845,       4155]
+CellTagsIndexPosition[    195802,       4152]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -417,7 +417,7 @@ Cell[BoxData[
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`i11$$ = 19, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`i11$$ = 14, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {
     "\"min\"" :> {$CellContext`i11$$ = 1}, 
      "\"max\"" :> {$CellContext`i11$$ = 29}}, Typeset`bookmarkMode$$ = "Menu",
@@ -436,9 +436,9 @@ Cell[BoxData[
                {"\<\"\"\>", 
                 AnimatorBox[Dynamic[$CellContext`i11$$], {1, 29, 1},
                  AnimationRate->Automatic,
-                 AnimationRunTime->38.207820892333984`,
+                 AnimationRunTime->0.,
                  AnimationRunning->False,
-                 AnimationTimeIndex->3.2078208923339844`,
+                 AnimationTimeIndex->2.3214285714285716`,
                  
                  AppearanceElements->{
                   "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
@@ -626,7 +626,6 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 7->
-               
                GraphicsBox[
                 RasterBox[{{1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1,
                   0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
@@ -713,7 +712,6 @@ Cell[BoxData[
                 FrameTicks->{{None, None}, {None, None}},
                 GridLinesStyle->Directive[
                   GrayLevel[0.5, 0.4]],
-                
                 Method->{
                  "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> 
                   Automatic, 
@@ -1395,7 +1393,7 @@ Cell[BoxData[
   3.892811528811105*^9, 3.892811555099962*^9}, {3.892811610797584*^9, 
   3.892811627791507*^9}, {3.892812219974677*^9, 3.892812314656776*^9}, {
   3.892812617302792*^9, 3.892812816282167*^9}},
- CellLabel->"In[13]:=",ExpressionUUID->"418b4f4b-0f10-4f2c-844f-21cdd5ea12d9"],
+ CellLabel->"In[1]:=",ExpressionUUID->"418b4f4b-0f10-4f2c-844f-21cdd5ea12d9"],
 
 Cell[BoxData[{
  RowBox[{
@@ -1470,7 +1468,7 @@ Cell[BoxData[{
    3.892361650533916*^9, 3.892361657278694*^9}, {3.89236180724402*^9, 
    3.892361885151441*^9}, {3.892361918255547*^9, 3.892361958003706*^9}, {
    3.8928129965204477`*^9, 3.892812996827156*^9}, 3.892814811498898*^9},
- CellLabel->"In[10]:=",ExpressionUUID->"5c9d3212-58eb-48f1-8d43-371026811b99"],
+ CellLabel->"In[3]:=",ExpressionUUID->"5c9d3212-58eb-48f1-8d43-371026811b99"],
 
 Cell[BoxData[
  RowBox[{
@@ -1480,7 +1478,8 @@ Cell[BoxData[
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"i", ",", "j", ",", "l", ",", "l2", ",", "n", ",", "aL"}], 
+      RowBox[{
+      "i", ",", "j", ",", "l", ",", "l2", ",", "n", ",", "aL", ",", "nVec"}], 
       "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"l", "=", "R"}], ";", "\[IndentingNewLine]", 
@@ -1512,6 +1511,10 @@ Cell[BoxData[
                  RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
               RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
               RowBox[{
+               RowBox[{"nVec", "=", 
+                RowBox[{"CNL", "[", 
+                 RowBox[{"l", ",", "i", ",", "j"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
                RowBox[{"If", "[", 
                 RowBox[{
                  RowBox[{
@@ -1523,14 +1526,8 @@ Cell[BoxData[
                  RowBox[{"If", "[", 
                   RowBox[{
                    RowBox[{
-                    RowBox[{
-                    RowBox[{"CNL", "[", 
-                    RowBox[{"l", ",", "i", ",", "j"}], "]"}], "==", "2"}], "||",
-                     " ", 
-                    RowBox[{
-                    RowBox[{"CNL", "[", 
-                    RowBox[{"l", ",", "i", ",", "j"}], "]"}], "==", "3"}]}], 
-                   ",", "\[IndentingNewLine]", 
+                    RowBox[{"nVec", "==", "2"}], "||", " ", 
+                    RowBox[{"nVec", "==", "3"}]}], ",", "\[IndentingNewLine]", 
                    RowBox[{
                     RowBox[{
                     RowBox[{"l2", "[", 
@@ -1547,10 +1544,7 @@ Cell[BoxData[
                  RowBox[{
                   RowBox[{"If", "[", 
                    RowBox[{
-                    RowBox[{
-                    RowBox[{"CNL", "[", 
-                    RowBox[{"l", ",", "i", ",", "j"}], "]"}], "==", "3"}], 
-                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"nVec", "==", "3"}], ",", "\[IndentingNewLine]", 
                     RowBox[{
                     RowBox[{
                     RowBox[{
@@ -1580,38 +1574,39 @@ Cell[BoxData[
    3.892310075556488*^9, 3.8923101442440042`*^9}, {3.892362000302681*^9, 
    3.8923620083896914`*^9}, {3.892362082295141*^9, 3.89236210809594*^9}, {
    3.892813071016457*^9, 3.892813092969791*^9}, {3.892813361473135*^9, 
-   3.892813363940761*^9}, {3.892814755174057*^9, 3.892814760464428*^9}},
- CellLabel->"In[14]:=",ExpressionUUID->"d1facbd3-8d19-4b4f-bd94-e044bbc18d50"],
+   3.892813363940761*^9}, {3.892814755174057*^9, 3.892814760464428*^9}, {
+   3.8945247058694267`*^9, 3.894524732660877*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"d1facbd3-8d19-4b4f-bd94-e044bbc18d50"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"Conway", "[", 
-  RowBox[{"oscilador", ",", "100"}], "]"}]], "Input",
+  RowBox[{"miniglider", ",", "100"}], "]"}]], "Input",
  CellChangeTimes->{{3.892309514766864*^9, 3.892309533166551*^9}, {
-  3.892309708629467*^9, 3.892309710197791*^9}, {3.892309800510429*^9, 
-  3.8923098023478928`*^9}, {3.892309976407324*^9, 3.892309978842309*^9}, {
-  3.892361969626693*^9, 3.892361971806478*^9}, {3.892812893095399*^9, 
-  3.892812898808346*^9}, {3.892813012964463*^9, 3.89281301359901*^9}, {
-  3.892813117919291*^9, 3.892813172763777*^9}, {3.892813211662965*^9, 
-  3.8928132118676033`*^9}, {3.89281337077719*^9, 3.8928133734747047`*^9}, {
-  3.8928139387019997`*^9, 3.892813970628008*^9}, {3.89281459693876*^9, 
-  3.892814599187525*^9}, {3.892814851706262*^9, 3.892814858049714*^9}, {
-  3.8928149088765182`*^9, 3.892814938550791*^9}, {3.892907578379962*^9, 
-  3.892907578992673*^9}, {3.892907761445403*^9, 3.89290777234235*^9}, {
-  3.8929079512820473`*^9, 3.8929079544948263`*^9}},
- CellLabel->"In[18]:=",ExpressionUUID->"70609028-2f59-45fa-bbbd-b573917c0286"],
+   3.892309708629467*^9, 3.892309710197791*^9}, {3.892309800510429*^9, 
+   3.8923098023478928`*^9}, {3.892309976407324*^9, 3.892309978842309*^9}, {
+   3.892361969626693*^9, 3.892361971806478*^9}, {3.892812893095399*^9, 
+   3.892812898808346*^9}, {3.892813012964463*^9, 3.89281301359901*^9}, {
+   3.892813117919291*^9, 3.892813172763777*^9}, {3.892813211662965*^9, 
+   3.8928132118676033`*^9}, {3.89281337077719*^9, 3.8928133734747047`*^9}, {
+   3.8928139387019997`*^9, 3.892813970628008*^9}, {3.89281459693876*^9, 
+   3.892814599187525*^9}, {3.892814851706262*^9, 3.892814858049714*^9}, {
+   3.8928149088765182`*^9, 3.892814938550791*^9}, {3.892907578379962*^9, 
+   3.892907578992673*^9}, {3.892907761445403*^9, 3.89290777234235*^9}, {
+   3.8929079512820473`*^9, 3.8929079544948263`*^9}, 3.8945247519660587`*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"70609028-2f59-45fa-bbbd-b573917c0286"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`i17$$ = 37, Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`i11$$ = 30, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {
-    "\"min\"" :> {$CellContext`i17$$ = 1}, 
-     "\"max\"" :> {$CellContext`i17$$ = 101}}, Typeset`bookmarkMode$$ = 
+    "\"min\"" :> {$CellContext`i11$$ = 1}, 
+     "\"max\"" :> {$CellContext`i11$$ = 101}}, Typeset`bookmarkMode$$ = 
     "Menu", Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`i17$$], 1, ""}, 1, 101, 1}}, Typeset`size$$ = 
+       Hold[$CellContext`i11$$], 1, ""}, 1, 101, 1}}, Typeset`size$$ = 
     Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
     Typeset`skipInitDone$$ = True}, 
     PaneBox[
@@ -1622,10 +1617,11 @@ Cell[BoxData[
            TagBox[
             StyleBox[GridBox[{
                {"\<\"\"\>", 
-                AnimatorBox[Dynamic[$CellContext`i17$$], {1, 101, 1},
+                AnimatorBox[Dynamic[$CellContext`i11$$], {1, 101, 1},
                  AnimationRate->Automatic,
-                 AnimationRunTime->15.762543678283691`,
-                 AnimationTimeIndex->1.80679927485998,
+                 AnimationRunTime->6.467638969421387,
+                 AnimationRunning->False,
+                 AnimationTimeIndex->1.4676389694213867`,
                  
                  AppearanceElements->{
                   "ProgressSlider", "PlayPauseButton", "FasterSlowerButtons", 
@@ -1654,9 +1650,12 @@ Cell[BoxData[
             PaneBox[
              TagBox[
               PaneSelectorBox[{1->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1675,10 +1674,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 2->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 
+                 1, 1, 0, 0, 1, 1}, {1, 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1697,15 +1698,17 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 3->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
                 GridLinesStyle->Directive[
                   GrayLevel[0.5, 0.4]],
-                
                 Method->{
                  "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> 
                   Automatic, 
@@ -1718,10 +1721,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 4->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1740,9 +1745,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 5->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1761,10 +1769,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 6->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 0, 1}, {1, 
+                 1, 1, 0, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1783,9 +1793,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 7->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1804,10 +1817,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 8->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 1, 1, 0, 0}, {1, 
+                 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1826,9 +1841,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 9->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1847,10 +1865,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 10->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 0, 0}, {1, 1, 1, 1, 0, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1869,9 +1889,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 11->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1890,10 +1913,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 12->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1912,9 +1937,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 13->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1933,10 +1961,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 14->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 1, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1955,9 +1985,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 15->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1976,10 +2009,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 16->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -1998,9 +2033,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 17->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 0, 1, 1, 1, 1, 0}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2019,10 +2057,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 18->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 
+                 1}, {0, 0, 1, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2041,9 +2081,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 19->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 1, 1, 1, 1, 
+                 1}, {1, 0, 1, 1, 1, 1, 0}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2062,10 +2105,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 20->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 1, 1, 1, 1, 
+                 1}, {1, 0, 0, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2084,9 +2129,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 21->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 0, 1, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2105,10 +2153,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 22->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 
+                 1}, {0, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2127,9 +2177,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 23->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {0, 1, 0, 1, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2148,10 +2201,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 24->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 
+                 1}, {1, 0, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2170,9 +2225,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 25->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2191,16 +2249,17 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 26->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
                 GridLinesStyle->Directive[
                   GrayLevel[0.5, 0.4]],
-                
                 Method->{
                  "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> 
                   Automatic, 
@@ -2213,9 +2272,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 27->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2234,10 +2296,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 28->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 1, 0, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2256,9 +2320,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 29->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2277,10 +2344,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 30->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 
+                 1, 1, 0, 0, 1, 1}, {1, 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2299,9 +2368,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 31->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2320,10 +2392,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 32->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2342,9 +2416,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 33->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2363,10 +2440,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 34->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 0, 1}, {1, 
+                 1, 1, 0, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2385,9 +2464,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 35->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2406,10 +2488,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 36->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 1, 1, 0, 0}, {1, 
+                 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2428,9 +2512,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 37->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2449,10 +2536,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 38->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 0, 0}, {1, 1, 1, 1, 0, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2471,9 +2560,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 39->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2492,10 +2584,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 40->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2514,9 +2608,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 41->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2535,10 +2632,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 42->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 1, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2557,9 +2656,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 43->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2578,10 +2680,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 44->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2600,9 +2704,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 45->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 0, 1, 1, 1, 1, 0}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2621,10 +2728,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 46->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 
+                 1}, {0, 0, 1, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2643,9 +2752,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 47->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 1, 1, 1, 1, 
+                 1}, {1, 0, 1, 1, 1, 1, 0}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2664,10 +2776,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 48->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 1, 1, 1, 1, 
+                 1}, {1, 0, 0, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2686,15 +2800,17 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 49->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 0, 1, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
                 GridLinesStyle->Directive[
                   GrayLevel[0.5, 0.4]],
-                
                 Method->{
                  "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> 
                   Automatic, 
@@ -2707,10 +2823,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 50->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 
+                 1}, {0, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2729,9 +2847,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 51->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {0, 1, 0, 1, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2750,10 +2871,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 52->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 
+                 1}, {1, 0, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2772,9 +2895,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 53->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2793,10 +2919,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 54->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2815,9 +2943,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 55->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2836,10 +2967,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 56->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 1, 0, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2858,9 +2991,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 57->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2879,10 +3015,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 58->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 
+                 1, 1, 0, 0, 1, 1}, {1, 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2901,9 +3039,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 59->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2922,10 +3063,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 60->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2944,9 +3087,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 61->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2965,10 +3111,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 62->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 0, 1}, {1, 
+                 1, 1, 0, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -2987,9 +3135,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 63->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3008,10 +3159,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 64->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 1, 1, 0, 0}, {1, 
+                 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3030,9 +3183,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 65->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3051,10 +3207,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 66->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 0, 0}, {1, 1, 1, 1, 0, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3073,9 +3231,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 67->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3094,10 +3255,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 68->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3116,9 +3279,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 69->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3137,10 +3303,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 70->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 1, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3159,9 +3327,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 71->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3180,16 +3351,17 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 72->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
                 GridLinesStyle->Directive[
                   GrayLevel[0.5, 0.4]],
-                
                 Method->{
                  "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> 
                   Automatic, 
@@ -3202,9 +3374,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 73->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 0, 1, 1, 1, 1, 0}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3223,10 +3398,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 74->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 
+                 1}, {0, 0, 1, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3245,9 +3422,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 75->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 1, 1, 1, 1, 
+                 1}, {1, 0, 1, 1, 1, 1, 0}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3266,10 +3446,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 76->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 1, 1, 1, 1, 
+                 1}, {1, 0, 0, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3288,9 +3470,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 77->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 0, 0, 1, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3309,10 +3494,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 78->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 
+                 1}, {0, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3331,9 +3518,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 79->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {0, 1, 0, 1, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3352,10 +3542,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 80->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 
+                 1}, {1, 0, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3374,9 +3566,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 81->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 0, 0, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 0, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3395,10 +3590,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 82->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3417,9 +3614,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 83->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 1, 1, 1}, {1, 0, 1, 0, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3438,10 +3638,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 84->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 1, 0, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3460,9 +3662,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 85->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 0, 0, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 0, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3481,10 +3686,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 86->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 
+                 1, 1, 0, 0, 1, 1}, {1, 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3503,9 +3710,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 87->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 0, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3524,10 +3734,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 88->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 1, 1}, {1, 
+                 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3546,9 +3758,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 89->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 0, 0, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3567,10 +3782,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 90->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 0, 0, 1}, {1, 
+                 1, 1, 0, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3589,9 +3806,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 91->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 0, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3610,10 +3830,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 92->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 1}, {1, 1, 1, 1, 1, 0, 0}, {1, 
+                 1, 1, 1, 0, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3632,9 +3854,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 93->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 0, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3653,10 +3878,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 94->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 0, 0}, {1, 1, 1, 1, 0, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3675,15 +3902,17 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 95->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 0, 1, 0}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
                 GridLinesStyle->Directive[
                   GrayLevel[0.5, 0.4]],
-                
                 Method->{
                  "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> 
                   Automatic, 
@@ -3696,10 +3925,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 96->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 0, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3718,9 +3949,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 97->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 0}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 1, 1, 0, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3739,10 +3973,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 98->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 0, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {1, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 1, 0}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3761,9 +3997,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 99->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3782,10 +4021,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 100->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAVDEJBefNNDxygYBaOAfgAAzhgLzg==
-
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{1, 1, 1, 1, 1, 1, 0}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 1, 1, 1, 1, 1, 0}, {0, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3804,9 +4045,12 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}], 101->
-               GraphicsBox[RasterBox[CompressedData["
-1:eJxTTMoPSmJiYGAwgmLGUTAKRsEoGAUjAYyW+KNgFAwzAADOGAvO
-                 "], {{0, 0}, {50, 50}}, {0, 1}],
+               
+               GraphicsBox[
+                RasterBox[{{0, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 
+                 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 
+                 1}, {0, 0, 1, 1, 1, 1, 0}, {1, 0, 1, 1, 1, 1, 1}}, {{0, 0}, {
+                 7, 7}}, {0, 1}],
                 Frame->Automatic,
                 FrameLabel->{None, None},
                 FrameTicks->{{None, None}, {None, None}},
@@ -3825,7 +4069,7 @@ Cell[BoxData[
                     "freeformCursorMode" -> True, 
                     "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
                   "DefaultPlotStyle" -> Automatic}]}, 
-               Dynamic[$CellContext`i17$$],
+               Dynamic[$CellContext`i11$$],
                Alignment->Automatic,
                BaseStyle->"ListAnimateCore",
                ImageSize->Full,
@@ -3877,10 +4121,10 @@ Cell[BoxData[
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Print",
  CellChangeTimes->{{3.8929077814147377`*^9, 3.8929078075474443`*^9}, 
-   3.892907963805097*^9},
+   3.892907963805097*^9, 3.894524753166933*^9},
  CellLabel->
   "During evaluation of \
-In[18]:=",ExpressionUUID->"e5916837-0626-4810-aac0-286b3980888e"]
+In[5]:=",ExpressionUUID->"70666fbf-c7b5-4f3e-84c2-cc3975e37fa9"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -3930,15 +4174,15 @@ Cell[8247, 207, 3201, 74, 371, "Input",ExpressionUUID->"d94cfc3c-22ea-4c61-9a89-
 Cell[11451, 283, 5135, 101, 437, "Input",ExpressionUUID->"e74bd3e3-c070-46b5-a3be-c9fdb9ff07ad"],
 Cell[CellGroupData[{
 Cell[16611, 388, 1658, 26, 66, "Input",ExpressionUUID->"457be5d6-915d-427b-81b8-00a251faf374"],
-Cell[18272, 416, 40610, 835, 284, "Print",ExpressionUUID->"478fe73d-36b5-4cd9-bb35-ef927f87d53d"]
+Cell[18272, 416, 40560, 833, 234, "Print",ExpressionUUID->"478fe73d-36b5-4cd9-bb35-ef927f87d53d"]
 }, Open  ]],
-Cell[58897, 1254, 562, 16, 223, "Text",ExpressionUUID->"eca42b40-2bd7-4cdb-a3b5-51108e07d7ca"],
-Cell[59462, 1272, 5316, 125, 602, "Input",ExpressionUUID->"418b4f4b-0f10-4f2c-844f-21cdd5ea12d9"],
-Cell[64781, 1399, 2919, 73, 300, "Input",ExpressionUUID->"5c9d3212-58eb-48f1-8d43-371026811b99"],
-Cell[67703, 1474, 4875, 109, 517, "Input",ExpressionUUID->"d1facbd3-8d19-4b4f-bd94-e044bbc18d50"],
+Cell[58847, 1252, 562, 16, 223, "Text",ExpressionUUID->"eca42b40-2bd7-4cdb-a3b5-51108e07d7ca"],
+Cell[59412, 1270, 5315, 125, 620, "Input",ExpressionUUID->"418b4f4b-0f10-4f2c-844f-21cdd5ea12d9"],
+Cell[64730, 1397, 2918, 73, 300, "Input",ExpressionUUID->"5c9d3212-58eb-48f1-8d43-371026811b99"],
+Cell[67651, 1472, 4776, 106, 537, "Input",ExpressionUUID->"d1facbd3-8d19-4b4f-bd94-e044bbc18d50"],
 Cell[CellGroupData[{
-Cell[72603, 1587, 1016, 15, 38, "Input",ExpressionUUID->"70609028-2f59-45fa-bbbd-b573917c0286"],
-Cell[73622, 1604, 106372, 2278, 398, "Print",ExpressionUUID->"e5916837-0626-4810-aac0-286b3980888e"]
+Cell[72452, 1582, 1051, 15, 38, "Input",ExpressionUUID->"70609028-2f59-45fa-bbbd-b573917c0286"],
+Cell[73506, 1599, 121556, 2527, 398, "Print",ExpressionUUID->"70666fbf-c7b5-4f3e-84c2-cc3975e37fa9"]
 }, Open  ]]
 }, Open  ]]
 }
