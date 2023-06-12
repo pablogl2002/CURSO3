@@ -1,0 +1,41 @@
+---
+title: "TOP - Práctica 8"
+output: html_notebook
+---
+
+Cargamos el controlador (lpSolve), ya instalado.
+```{r}
+ library(lpSolveAPI)
+```
+
+Generamos el modelo
+
+```{r}
+modelo <- make.lp(0, 5)
+
+set.objfn(modelo, c(634, 560, 570, 704, 812))
+
+add.constraint(modelo, c(1,0,0,0,0), ">=", 36)
+add.constraint(modelo, c(0,1,1,0,0), ">=", 45)
+add.constraint(modelo, c(0,0,0,1,1), ">=", 10)
+add.constraint(modelo, c(10,8,0,8,0), "<=", 480)
+add.constraint(modelo, c(0,0,6,0,10), "<=", 480)
+add.constraint(modelo, c(6,10,0,16,3), "<=", 480)
+add.constraint(modelo, c(3,0,9,0,8), "<=", 480)
+
+colNames<-c("A","B1","B2","C1","C2")
+rowNames<-c("demA","demB","demC","CAPM1","CAPM2","CAPM3","CAPM4")
+dimnames(modelo)<-list(rowNames,colNames)
+
+modelo
+
+```
+```{r}
+solve(modelo)
+get.objective(modelo)
+get.variables(modelo)
+get.constraints(modelo)
+get.dual.solution(modelo)
+get.sensitivity.obj(modelo)
+```
+
